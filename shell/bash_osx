@@ -1,0 +1,22 @@
+#!/bin/bash
+# OS X specific stuff
+
+# check for homebrew
+if [ -z `which brew > /dev/null` ]; then
+	# tab-completion for bash
+	if [ -f `brew --prefix`/etc/bash_completion ]; then
+		. `brew --prefix`/etc/bash_completion
+	fi
+
+	# make sure brew bins take precedence
+	PATH_PREPEND+=("/usr/local/bin")
+
+	PATH_APPEND+=(
+		"$(brew --prefix coreutils)/libexec/gnubin" # Add brew-installed GNU core utilities bin
+		"$(brew --prefix)/share/npm/bin" # Add npm-installed package bin
+	)
+
+	# Make new shells get the history lines from all previous
+	# shells instead of the default "last window closed" history
+	export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
+fi

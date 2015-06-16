@@ -1,0 +1,34 @@
+#!/bin/bash
+
+# Directories to be prepended to PATH
+declare -a PATH_PREPEND=()
+
+# Directories to be appended to PATH
+declare -a PATH_APPEND=(
+	"$HOME/bin"
+	"$HOME/.dotfiles/bin"
+)
+
+set_paths() {
+	# Prepend directories to PATH
+	for index in ${!PATH_PREPEND[*]}
+	do
+		if [ -d ${PATH_PREPEND[$index]} ]; then
+			# If these directories exist, then prepend them to existing PATH
+			PATH="${PATH_PREPEND[$index]}:$PATH"
+		fi
+	done
+
+	# Append directories to PATH
+	for index in ${!PATH_APPEND[*]}
+	do
+		if [ -d ${PATH_APPEND[$index]} ]; then
+			# If these bins exist, then append them to existing PATH
+			PATH="$PATH:${PATH_APPEND[$index]}"
+		fi
+	done
+
+	unset PATH_PREPEND PATH_APPEND set_paths
+
+	export PATH
+}

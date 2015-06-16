@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# make nano the default editor, unless sublime is available
+if [ -z `which subl > /dev/null` ]; then
+	export EDITOR="subl -n -w"
+else
+	export EDITOR="nano"
+fi
+
+# ignore duplicates and lines starting with a space
+export HISTCONTROL=ignoreboth
+
+# Increase the maximum number of lines contained in the history file
+# (default is 500)
+export HISTFILESIZE=10000
+
+# Increase the maximum number of commands to remember
+# (default is 500)
+export HISTSIZE=1000
