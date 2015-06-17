@@ -20,3 +20,6 @@ if [ -z `which brew > /dev/null` ]; then
 	# shells instead of the default "last window closed" history
 	export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 fi
+
+# enable colors
+export CLICOLOR=1
