@@ -29,6 +29,7 @@ mirrorfiles() {
 	# `.dotfiles` repository.
 	link "shell/bashrc"       ".bashrc"
 	link "shell/bash_profile" ".bash_profile"
+	link "git/gitignore"      ".gitignore_global"
 }
 
 # Ask before potentially overwriting files

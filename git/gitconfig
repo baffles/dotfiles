@@ -1,0 +1,9 @@
+[alias]
+	co = checkout
+	st = status
+	remoterename = "!f() { git push origin origin/$1:refs/heads/$2 :$1; } ; f"
+[core]
+	excludesfile = ~/.gitignore_global
+[push]
+	default = simple
+
