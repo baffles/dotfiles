@@ -7,6 +7,10 @@ elif infocmp xterm-256color >/dev/null 2>&1; then
     export TERM=xterm-256color
 fi
 
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+   . $(brew --prefix)/etc/bash_completion
+fi
+
 # Up-front dotfiles configuration
 # Not part of `load_dotfiles` because it must be sourced before anything else
 # to be sure that commands like `brew` (when installed in a custom location)
