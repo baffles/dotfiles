@@ -11,6 +11,9 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
    . $(brew --prefix)/etc/bash_completion
 fi
 
+# Init jenv
+if which jenv > /dev/null; then eval "$(jenv init -)"; fi
+
 # Up-front dotfiles configuration
 # Not part of `load_dotfiles` because it must be sourced before anything else
 # to be sure that commands like `brew` (when installed in a custom location)

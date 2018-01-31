@@ -7,6 +7,6 @@ read -p "Git user.email: "
 git config --global user.email "$REPLY"
 
 read -p "Git config (gitconfig / gitconfig_osx): "
-git config --global "$PWD/git/$REPLY"
+git config --global include.path "$PWD/git/$REPLY"
 
 echo Done
